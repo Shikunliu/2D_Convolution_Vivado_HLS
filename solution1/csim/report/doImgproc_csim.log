@@ -1,0 +1,14 @@
+INFO: [SIM 2] *************** CSIM start ***************
+WARNING: [SIM 51] HLS only supports CLANG compiler in Linux.
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../test_bench.cpp in debug mode
+   Compiling ../../../core.cpp in debug mode
+   Generating csim.exe
+Load image 1 C:\Users\baohaochun\2d_convolution_unit\ab.bmp
+Image 1, Rows:320 Cols240
+Load image 2 C:\Users\baohaochun\2d_convolution_unit\a.bmp
+Image 2, Rows:320 Cols240
+Calling Core function
+Core function ended
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

@@ -51,24 +51,35 @@ char kernel[KERNEL_DIM*KERNEL_DIM]=
 //Image file path
 
 char outImage[IMG_HEIGHT_OR_ROWS][IMG_WIDTH_OR_COLS];
+char outImage2[IMG_HEIGHT_OR_ROWS][IMG_WIDTH_OR_COLS];
 char outImageRef[IMG_HEIGHT_OR_ROWS][IMG_WIDTH_OR_COLS];
 
 int main()
 {
-	//Read input image
-	printf("Load image %s\n", INPUT_IMAGE_CORE); //INPUT_IMAGE is defined in header file core.h
+	//Read input image 1
+	printf("Load image 1 %s\n", INPUT_IMAGE_CORE); //INPUT_IMAGE is defined in header file core.h
 	cv::Mat imageSrc;  //Create matrix
 	imageSrc = cv::imread(INPUT_IMAGE_CORE);// Put image to the matrix
 	//Convert to grayscale
 	cv::cvtColor(imageSrc, imageSrc, CV_BGR2GRAY);
-	printf("Image Rows:%d Cols%d\n", imageSrc.rows, imageSrc.cols);
+	printf("Image 1, Rows:%d Cols%d\n", imageSrc.rows, imageSrc.cols);
+
+	//Read input image 2
+	printf("Load image 2 %s\n", INPUT_IMAGE_2); //INPUT_IMAGE is defined in header file core.h
+	cv::Mat imageSrc2;  //Create matrix
+	imageSrc2 = cv::imread(INPUT_IMAGE_2);// Put image to the matrix
+	//Convert to grayscale
+	cv::cvtColor(imageSrc2, imageSrc2, CV_BGR2GRAY);
+	printf("Image 2, Rows:%d Cols%d\n", imageSrc2.rows, imageSrc2.cols);
 
 	//Define stream for input and output
 	hls::stream<uint_8_side_channel> inputStream;
+	hls::stream<uint_8_side_channel> inputStream2;
 	hls::stream<int_8_side_channel> outputStream;
 
 	//OpenCV mat that point to a array (cv::Size(Width, Height))
 	cv::Mat imgCvOut(cv::Size(imageSrc.cols, imageSrc.rows), CV_8UC1, outImage, cv::Mat::AUTO_STEP); //Define matrix that output the image, parameters: size of image , saving classification CV_8UC1:3 channels 8 bits unsigned
+	cv::Mat imgCvOut2(cv::Size(imageSrc2.cols, imageSrc2.rows), CV_8UC1, outImage2, cv::Mat::AUTO_STEP);
 	cv::Mat imgCvOutRef(cv::Size(imageSrc.cols, imageSrc.rows), CV_8UC1, outImage, cv::Mat::AUTO_STEP);
 
 
@@ -85,6 +96,17 @@ int main()
 			inputStream << valIn; //Put the image into the stream
 		}
 	}
+
+	for(int idxRows = 0; idxRows < imageSrc2.rows; idxRows++)
+		{
+			for(int idxCols = 0; idxCols < imageSrc2.cols; idxCols++)
+			{
+				uint_8_side_channel valIn;
+				valIn.data = imageSrc2.at<unsigned char>(idxRows, idxCols);// at: access a specific pixel
+				valIn.keep = 1; valIn.strb = 1; valIn.user = 1; valIn.id = 0; valIn.dest = 0;
+				inputStream2 << valIn; //Put the image into the stream
+			}
+		}
 
 
 	/* kun
@@ -108,7 +130,7 @@ int main()
 
 	//Do the convilution on the core (Third parameter choose operation 0(conv), 1(erode), 2(dilate))
 	printf("Calling Core function\n");
-	doImgproc(inputStream, outputStream, kernel, 0);
+	doImgproc(inputStream, inputStream2, outputStream, kernel, 0);
 	printf("Core function ended\n");
 
 

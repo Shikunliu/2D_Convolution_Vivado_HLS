@@ -1,11 +1,12 @@
 #include "core.h"
 
-void doImgproc(hls::stream<uint_8_side_channel> &inStream, hls::stream<int_8_side_channel> &outStream, char kernel[KERNEL_DIM*KERNEL_DIM],int operation)
+void doImgproc(hls::stream<uint_8_side_channel> &inStream, hls::stream<uint_8_side_channel> &inStream2, hls::stream<int_8_side_channel> &outStream, char kernel[KERNEL_DIM*KERNEL_DIM],int operation)
 {
 	#pragma HLS INTERFACE s_axilite port=kernel bundle=KERNEL_BUS
 	#pragma HLS INTERFACE s_axilite port=operation bundle=CRTL_BUS
 	#pragma HLS INTERFACE s_axilite port=return bundle=CRTL_BUS
 	#pragma HLS INTERFACE axis port=inStream
+	#pragma HLS INTERFACE axis port=inStream2
 	#pragma HLS INTERFACE axis port=outStream
 	//Define the line buffer and setting the internal dependency to false through program
 	hls::LineBuffer<KERNEL_DIM, IMG_WIDTH_OR_COLS, unsigned char> lineBuff;  //Define the size of line buffer £¨3  of linebuffer which size of 240£©
@@ -23,6 +24,9 @@ void doImgproc(hls::stream<uint_8_side_channel> &inStream, hls::stream<int_8_sid
 	int_8_side_channel dataOutSideChannel;
 	uint_8_side_channel currPixelSideChannel;
 
+	int_8_side_channel dataOutSideChannel2;
+	uint_8_side_channel currPixelSideChannel2;
+
 	//Iterate on all pixels for 320x240 image, the HLS PIPELINE improves the latency
 	for(int idxPixel = 0; idxPixel < (IMG_WIDTH_OR_COLS*IMG_HEIGHT_OR_ROWS); idxPixel++) // Sweep all the pixels
 	{
@@ -31,6 +35,11 @@ void doImgproc(hls::stream<uint_8_side_channel> &inStream, hls::stream<int_8_sid
 		currPixelSideChannel = inStream.read();
 		//Get the pixel data
 		unsigned char pixelIn = currPixelSideChannel.data;
+
+
+		currPixelSideChannel2 = inStream2.read();
+		//Get the pixel data
+		unsigned char pixelIn2 = currPixelSideChannel2.data;
 
 		//Put data on the Linebuffer
 		lineBuff.shift_up(idxCol);
@@ -95,6 +104,8 @@ void doImgproc(hls::stream<uint_8_side_channel> &inStream, hls::stream<int_8_sid
 			idxRow++;
 			pixConvolved = 0;
 		}
+
+		valOutput = valOutput + (short)pixelIn2;
 		/*
 		 * Fix the line buffer delay, on a 320x240image with 3x3 kernel, the delay will be
 		 * ((240*2) +3)/2 = 241

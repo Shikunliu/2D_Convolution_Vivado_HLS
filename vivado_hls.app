@@ -1,8 +1,8 @@
-<project xmlns="com.autoesl.autopilot.project" name="2d_convolution_unit" top="">
+<project xmlns="com.autoesl.autopilot.project" name="2d_convolution_unit" top="doImgproc">
     <files>
+        <file name="../test_bench.cpp" sc="0" tb="1" cflags=""/>
         <file name="2d_convolution_unit/core.cpp" sc="0" tb="false" cflags=""/>
         <file name="2d_convolution_unit/core.h" sc="0" tb="false" cflags=""/>
-        <file name="../test_bench.cpp" sc="0" tb="1" cflags=""/>
     </files>
     <includePaths/>
     <libraryPaths/>

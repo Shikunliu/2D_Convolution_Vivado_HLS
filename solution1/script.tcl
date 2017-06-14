@@ -4,6 +4,7 @@
 ## Copyright (C) 1986-2016 Xilinx, Inc. All Rights Reserved.
 ############################################################
 open_project 2d_convolution_unit
+set_top doImgproc
 add_files 2d_convolution_unit/core.cpp
 add_files 2d_convolution_unit/core.h
 add_files -tb 2d_convolution_unit/test_bench.cpp
