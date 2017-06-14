@@ -75,11 +75,13 @@ int main()
 	//Define stream for input and output
 	hls::stream<uint_8_side_channel> inputStream;
 	hls::stream<uint_8_side_channel> inputStream2;
+	hls::stream<uint_8_side_channel> inputStream2_5;
+	hls::stream<uint_8_side_channel> inputStream3;
 	hls::stream<int_8_side_channel> outputStream;
 
 	//OpenCV mat that point to a array (cv::Size(Width, Height))
 	cv::Mat imgCvOut(cv::Size(imageSrc.cols, imageSrc.rows), CV_8UC1, outImage, cv::Mat::AUTO_STEP); //Define matrix that output the image, parameters: size of image , saving classification CV_8UC1:3 channels 8 bits unsigned
-	cv::Mat imgCvOut2(cv::Size(imageSrc2.cols, imageSrc2.rows), CV_8UC1, outImage2, cv::Mat::AUTO_STEP);
+	//cv::Mat imgCvOut2(cv::Size(imageSrc2.cols, imageSrc2.rows), CV_8UC1, outImage2, cv::Mat::AUTO_STEP);
 	cv::Mat imgCvOutRef(cv::Size(imageSrc.cols, imageSrc.rows), CV_8UC1, outImage, cv::Mat::AUTO_STEP);
 
 
@@ -133,8 +135,6 @@ int main()
 	doImgproc(inputStream, inputStream2, outputStream, kernel, 0);
 	printf("Core function ended\n");
 
-
-
 	//Take data from the output stream to our array outImage (pointed in opencv)
 	for (int idxRows = 0; idxRows < imageSrc.rows; idxRows++)
 	{
@@ -145,11 +145,70 @@ int main()
 			outImage[idxRows][idxCols] = valOut.data; //Save the output image to outImage which is imgCvOut
 		}
 	}
-
-
-
-	//imshow("My Image",imageSrc);
 	imwrite(OUTPUT_IMAGE_CORE, imgCvOut);
+
+
+	//Read (last output)
+		printf("Load last image  %s\n", OUTPUT_IMAGE_CORE); //INPUT_IMAGE is defined in header file core.h
+		cv::Mat imageSrc_last;  //Create matrix
+		imageSrc_last = cv::imread(OUTPUT_IMAGE_CORE);// Put image to the matrix
+		//Convert to grayscale
+		cv::cvtColor(imageSrc_last, imageSrc_last, CV_BGR2GRAY);
+		printf("Last image, Rows:%d Cols%d\n", imageSrc_last.rows, imageSrc_last.cols);
+
+		for(int idxRows = 0; idxRows < imageSrc_last.rows; idxRows++)
+		{
+			for(int idxCols = 0; idxCols < imageSrc_last.cols; idxCols++)
+			{
+				uint_8_side_channel valIn;
+				valIn.data = imageSrc_last.at<unsigned char>(idxRows, idxCols);// at: access a specific pixel
+				valIn.keep = 1; valIn.strb = 1; valIn.user = 1; valIn.id = 0; valIn.dest = 0;
+				inputStream2_5 << valIn; //Put the image into the stream
+			}
+		}
+
+
+
+
+
+		//Read (last output)
+				printf("Load image3 %s\n", INPUT_IMAGE_3); //INPUT_IMAGE is defined in header file core.h
+				cv::Mat imageSrc3;  //Create matrix
+				imageSrc3 = cv::imread(INPUT_IMAGE_3);// Put image to the matrix
+				//Convert to grayscale
+				cv::cvtColor(imageSrc3, imageSrc3, CV_BGR2GRAY);
+				printf("Image 3, Rows:%d Cols%d\n", imageSrc3.rows, imageSrc3.cols);
+
+				for(int idxRows = 0; idxRows < imageSrc3.rows; idxRows++)
+				{
+					for(int idxCols = 0; idxCols < imageSrc3.cols; idxCols++)
+					{
+						uint_8_side_channel valIn;
+						valIn.data = imageSrc3.at<unsigned char>(idxRows, idxCols);// at: access a specific pixel
+						valIn.keep = 1; valIn.strb = 1; valIn.user = 1; valIn.id = 0; valIn.dest = 0;
+						inputStream3 << valIn; //Put the image into the stream
+					}
+				}
+
+
+
+		printf("Calling Core function\n");
+		doImgproc(inputStream3, inputStream2_5, outputStream, kernel, 0);
+		printf("Core function ended\n");
+
+
+		for (int idxRows = 0; idxRows < imageSrc.rows; idxRows++)
+			{
+				for (int idxCols = 0; idxCols < imageSrc.cols; idxCols++)
+				{
+					int_8_side_channel valOut;
+					outputStream.read(valOut); //Read out the output stream
+					outImage[idxRows][idxCols] = valOut.data; //Save the output image to outImage which is imgCvOut
+				}
+			}
+			imwrite(OUTPUT_IMAGE_CORE, imgCvOut);
+
+
 
 
 	/*kun
