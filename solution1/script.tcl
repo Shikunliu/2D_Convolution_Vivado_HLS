@@ -7,7 +7,6 @@ open_project 2d_convolution_unit
 add_files 2d_convolution_unit/core.cpp
 add_files 2d_convolution_unit/core.h
 add_files -tb 2d_convolution_unit/test_bench.cpp
-add_files -tb 2d_convolution_unit/test_core.cpp
 open_solution "solution1"
 set_part {xc7z020clg484-1} -tool vivado
 create_clock -period 10 -name default

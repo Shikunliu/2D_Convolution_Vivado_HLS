@@ -1,4 +1,4 @@
-@I [HLS-0] Workspace C:/Users/baohaochun/2d_convolution_unit/solution1 opened at Tue Jun 13 21:27:59 +0100 2017
+@I [HLS-0] Workspace C:/Users/baohaochun/2d_convolution_unit/solution1 opened at Wed Jun 14 15:09:42 +0100 2017
 @I [HLS-100] Execute     config_clock -quiet -name default -period 10 -default=false 
 @I [SYN-201] Setting up clock 'default' with a period of 10ns.
 @I [HLS-100] Command     config_clock returned 0; 0.001 sec.
@@ -8,25 +8,25 @@
 @I [HLS-100] Execute       source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx.lib 
 @I [HLS-100] Execute         source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/xilinx_interface.lib 
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/plb46.lib 
-@I [HLS-100] Command           ap_source returned 0; 0 sec.
-@I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/fsl.lib 
-@I [HLS-100] Command           ap_source returned 0; 0 sec.
-@I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/axi4.lib 
 @I [HLS-100] Command           ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/fsl.lib 
+@I [HLS-100] Command           ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/axi4.lib 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/maxi.lib 
 @I [HLS-100] Command           ap_source returned 0; 0 sec.
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/saxilite.lib 
 @I [HLS-100] Command           ap_source returned 0; 0 sec.
-@I [HLS-100] Command         ap_source returned 0; 0.004 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.007 sec.
 @I [HLS-100] Execute         source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/dsp48.lib 
 @I [HLS-100] Command         ap_source returned 0; 0 sec.
 @I [HLS-100] Execute         source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/dds_compiler.lib 
 @I [HLS-100] Command         ap_source returned 0; 0 sec.
 @I [HLS-100] Execute         source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/xfft.lib 
-@I [HLS-100] Command         ap_source returned 0; 0.001 sec.
-@I [HLS-100] Execute         source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/xfir.lib 
 @I [HLS-100] Command         ap_source returned 0; 0 sec.
-@I [HLS-100] Command       ap_source returned 0; 0.008 sec.
+@I [HLS-100] Execute         source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/xfir.lib 
+@I [HLS-100] Command         ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.012 sec.
 @I [HLS-100] Execute       source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx_old.lib 
 @I [HLS-100] Command       ap_source returned 0; 0.001 sec.
 @I [HLS-100] Execute       source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx_vivado.lib 
@@ -38,11 +38,11 @@
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/maxi.hlp 
 @I [HLS-100] Command           ap_source returned 0; 0 sec.
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/saxilite.hlp 
-@I [HLS-100] Command           ap_source returned 0; 0.001 sec.
-@I [HLS-100] Command         ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.002 sec.
 @I [HLS-100] Execute         source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/dsp48.hlp 
 @I [HLS-100] Command         ap_source returned 0; 0.001 sec.
-@I [HLS-100] Command       ap_source returned 0; 0.004 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.006 sec.
 @I [HLS-100] Execute       source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/zynq/dsp48e1.hlp 
 @I [HLS-100] Command       ap_source returned 0; 0 sec.
 @I [HLS-100] Execute       get_default_platform 
@@ -51,7 +51,7 @@
 @I [HLS-100] Command       config_chip_info returned 0; 0 sec.
 @I [HLS-100] Execute       config_chip_info -quiet -speed medium 
 @I [HLS-100] Command       config_chip_info returned 0; 0 sec.
-@I [HLS-100] Command     import_lib returned 0; 0.02 sec.
+@I [HLS-100] Command     import_lib returned 0; 0.027 sec.
 @I [HLS-100] Execute     source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/zynq/zynq.gen 
 @I [HLS-100] Execute       source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/virtex.gen 
 @I [HLS-100] Execute         source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx.gen 
@@ -60,30 +60,30 @@
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/fsl.gen 
 @I [HLS-100] Command           ap_source returned 0; 0.001 sec.
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/axi4.gen 
-@I [HLS-100] Command           ap_source returned 0; 0.002 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.003 sec.
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/nativeAXI4.gen 
 @I [HLS-100] Execute             source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/saxilite.gen 
-@I [HLS-100] Command             ap_source returned 0; 0.004 sec.
+@I [HLS-100] Command             ap_source returned 0; 0.01 sec.
 @I [HLS-100] Execute             source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/maxi.gen 
-@I [HLS-100] Command             ap_source returned 0; 0.009 sec.
-@I [HLS-100] Command           ap_source returned 0; 0.014 sec.
+@I [HLS-100] Command             ap_source returned 0; 0.033 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.046 sec.
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/scripts/xilinxcoregen.gen 
-@I [HLS-100] Command           ap_source returned 0; 0.009 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.012 sec.
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/XilEDKCoreGen.gen 
 @I [HLS-100] Command           ap_source returned 0; 0.008 sec.
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/dds_compiler.gen 
-@I [HLS-100] Command           ap_source returned 0; 0.005 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.003 sec.
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/util.gen 
 @I [HLS-100] Command           ap_source returned 0; 0 sec.
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/xfft.gen 
-@I [HLS-100] Command           ap_source returned 0; 0.105 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.116 sec.
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/xfir.gen 
 @I [HLS-100] Command           ap_source returned 0; 0.001 sec.
-@I [HLS-100] Command         ap_source returned 0; 0.153 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.202 sec.
 @I [HLS-100] Execute         source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/dsp48.gen 
-@I [HLS-100] Command         ap_source returned 0; 0 sec.
-@I [HLS-100] Command       ap_source returned 0; 0.156 sec.
-@I [HLS-100] Command     ap_source returned 0; 0.156 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.207 sec.
+@I [HLS-100] Command     ap_source returned 0; 0.208 sec.
 @I [HLS-100] Execute     open_platform DefaultPlatform 
 @I [HLS-100] Command     open_platform returned 0; 0 sec.
 @I [HLS-100] Execute     import_lib D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/zynq/zynq_fpv6 
@@ -94,62 +94,73 @@
 @I [HLS-100] Execute       source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx_fpv.hlp 
 @I [HLS-100] Execute         source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx.hlp 
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/target_info.tcl 
-@I [HLS-100] Command           ap_source returned 0; 0.009 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.004 sec.
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/xilinx_interface.hlp 
 @I [HLS-100] Execute             source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/maxi.hlp 
 @I [HLS-100] Command             ap_source returned 0; 0 sec.
 @I [HLS-100] Execute             source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/saxilite.hlp 
-@I [HLS-100] Command             ap_source returned 0; 0 sec.
-@I [HLS-100] Command           ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command             ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.002 sec.
 @I [HLS-100] Execute           source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/dsp48.hlp 
 @I [HLS-100] Command           ap_source returned 0; 0.001 sec.
-@I [HLS-100] Command         ap_source returned 0; 0.013 sec.
-@I [HLS-100] Command       ap_source returned 0; 0.015 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.008 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.009 sec.
 @I [HLS-100] Execute       source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/zynq/zynq_hp.hlp 
-@I [HLS-100] Command       ap_source returned 0; 0.002 sec.
-@I [HLS-100] Command     import_lib returned 0; 0.031 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command     import_lib returned 0; 0.025 sec.
 @I [HLS-100] Execute     source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/zynq/zynq_fpv6.gen 
 @I [HLS-100] Execute       source D:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx_fpv6.gen 
 @I [HLS-100] Command       ap_source returned 0; 0.002 sec.
-@I [HLS-100] Command     ap_source returned 0; 0.002 sec.
+@I [HLS-100] Command     ap_source returned 0; 0.004 sec.
 @I [HLS-100] Execute     set_part xc7z020clg484-1 
 @I [HLS-100] Execute       add_library xilinx/zynq/zynq:xc7z020:clg484:-1 
 @I [HLS-100] Execute         get_default_platform 
 @I [HLS-100] Command         get_default_platform returned 0; 0 sec.
 @I [HLS-100] Execute         license_isbetapart xc7z020 
-@I [HLS-100] Command         license_isbetapart returned 1; 0.016 sec.
+@I [HLS-100] Command         license_isbetapart returned 1; 0.017 sec.
 @I [HLS-100] Execute         get_default_platform 
 @I [HLS-100] Command         get_default_platform returned 0; 0 sec.
 @I [HLS-100] Execute         config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
 @I [HLS-100] Command         config_chip_info returned 0; 0 sec.
 @I [HLS-100] Execute         config_chip_info -quiet -speed slow 
-@I [HLS-100] Command         config_chip_info returned 0; 0.001 sec.
-@I [HLS-100] Command       add_library returned 0; 0.023 sec.
+@I [HLS-100] Command         config_chip_info returned 0; 0 sec.
+@I [HLS-100] Command       add_library returned 0; 0.028 sec.
 @I [HLS-100] Execute       add_library xilinx/zynq/zynq_fpv6 
 @I [HLS-100] Execute         get_default_platform 
-@I [HLS-100] Command         get_default_platform returned 0; 0 sec.
-@I [HLS-100] Command       add_library returned 0; 0.026 sec.
+@I [HLS-100] Command         get_default_platform returned 0; 0.001 sec.
+@I [HLS-100] Command       add_library returned 0; 0.005 sec.
 @I [HLS-10] Setting target device to 'xc7z020clg484-1'
-@I [HLS-100] Command     set_part returned 0; 0.062 sec.
+@I [HLS-100] Command     set_part returned 0; 0.043 sec.
 @I [HLS-100] Execute     get_default_platform 
 @I [HLS-100] Command     get_default_platform returned 0; 0 sec.
 @I [HLS-100] Execute     config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
 @I [HLS-100] Command     config_chip_info returned 0; 0 sec.
 @I [HLS-100] Execute     config_chip_info -quiet -speed slow 
 @I [HLS-100] Command     config_chip_info returned 0; 0 sec.
-@I [HLS-100] Command   open_solution returned 0; 0.301 sec.
+@I [HLS-100] Command   open_solution returned 0; 0.385 sec.
 @I [HLS-100] Execute   csim_design -quiet 
 @I [SIM-2] *************** CSIM start ***************
 @W [SIM-51] HLS only supports CLANG compiler in Linux.
 @I [SIM-4] CSIM will launch GCC as the compiler.
 @I [HLS-100] Execute     source csim/.lst_opt.tcl 
 @I [HLS-100] Command     ap_source returned 0; 0.001 sec.
-@I [HLS-100] Execute     is_encrypted C:/Users/baohaochun/2d_convolution_unit/test_core.cpp 
+@I [HLS-100] Execute     is_encrypted C:/Users/baohaochun/2d_convolution_unit/test_bench.cpp 
 @I [HLS-100] Command     is_encrypted returned 0; 0 sec.
-@I [HLS-100] Execute     is_xip C:/Users/baohaochun/2d_convolution_unit/test_core.cpp 
-@I [HLS-100] Command     is_xip returned 0; 0 sec.
-@I [HLS-100] Execute     is_encrypted C:/Users/baohaochun/2d_convolution_unit/core.cpp 
-@I [HLS-100] Command     is_encrypted returned 0; 0.001 sec.
-@I [HLS-100] Execute     is_xip C:/Users/baohaochun/2d_convolution_unit/core.cpp 
+@I [HLS-100] Execute     is_xip C:/Users/baohaochun/2d_convolution_unit/test_bench.cpp 
 @I [HLS-100] Command     is_xip returned 0; 0.001 sec.
-@I [HLS-100] Execute     is_encrypted C:/Users/baohaochun/2
+@I [HLS-100] Execute     is_encrypted C:/Users/baohaochun/2d_convolution_unit/core.cpp 
+@I [HLS-100] Command     is_encrypted returned 0; 0 sec.
+@I [HLS-100] Execute     is_xip C:/Users/baohaochun/2d_convolution_unit/core.cpp 
+@I [HLS-100] Command     is_xip returned 0; 0 sec.
+@I [HLS-100] Execute     is_encrypted C:/Users/baohaochun/2d_convolution_unit/core.h 
+@I [HLS-100] Command     is_encrypted returned 0; 0 sec.
+@I [HLS-100] Execute     is_xip C:/Users/baohaochun/2d_convolution_unit/core.h 
+@I [HLS-100] Command     is_xip returned 0; 0 sec.
+@I [HLS-100] Execute     source run_sim.tcl 
+@I [HLS-100] Command     ap_source returned 0; 0.617 sec.
+@I [SIM-1] CSim done with 0 errors.
+@I [SIM-3] *************** CSIM finish ***************
+@I [HLS-100] Command   csim_design returned 0; 149.896 sec.
+@I [HLS-100] Command ap_source returned 0; 150.289 sec.
+@I [HLS-100] Execute cleanup_all 
+@I [HLS-100] Command cleanup_all returned 0; 0 sec.

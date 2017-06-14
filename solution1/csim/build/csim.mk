@@ -19,7 +19,7 @@ __SIM_DDS__ = 1
 
 ObjDir = obj
 
-HLS_SOURCES = ../../../test_core.cpp ../../../core.cpp
+HLS_SOURCES = ../../../test_bench.cpp ../../../core.cpp
 
 TARGET := csim.exe
 
@@ -69,11 +69,11 @@ all: $(TARGET)
 
 
 
-$(ObjDir)/test_core.o: ../../../test_core.cpp $(ObjDir)/.dir
-	$(Echo) "   Compiling ../../../test_core.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
+$(ObjDir)/test_bench.o: ../../../test_bench.cpp $(ObjDir)/.dir
+	$(Echo) "   Compiling ../../../test_bench.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
 	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
--include $(ObjDir)/test_core.d
+-include $(ObjDir)/test_bench.d
 
 $(ObjDir)/core.o: ../../../core.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../core.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)

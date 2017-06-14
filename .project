@@ -57,11 +57,6 @@
 			<location>C:/Users/baohaochun/2d_convolution_unit/test_bench.cpp</location>
 		</link>
 		<link>
-			<name>testbench/test_core.cpp</name>
-			<type>1</type>
-			<location>C:/Users/baohaochun/2d_convolution_unit/test_core.cpp</location>
-		</link>
-		<link>
 			<name>solution1/constraints/.xml.directive</name>
 			<type>1</type>
 			<location>C:/Users/baohaochun/2d_convolution_unit/solution1/solution1.directive</location>
