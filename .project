@@ -52,6 +52,11 @@
 			<location>C:/Users/baohaochun/2d_convolution_unit/core.h</location>
 		</link>
 		<link>
+			<name>testbench/test_bench.cpp</name>
+			<type>1</type>
+			<location>C:/Users/baohaochun/2d_convolution_unit/test_bench.cpp</location>
+		</link>
+		<link>
 			<name>testbench/test_core.cpp</name>
 			<type>1</type>
 			<location>C:/Users/baohaochun/2d_convolution_unit/test_core.cpp</location>

@@ -6,5 +6,6 @@
   </source>
   <testbench>
     <originFiles name="test_core.cpp" path="C:\Users\baohaochun\2d_convolution_unit\test_core.cpp"/>
+    <originFiles name="test_bench.cpp" path="C:\Users\baohaochun\2d_convolution_unit\test_bench.cpp"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>
