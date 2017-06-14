@@ -4,14 +4,14 @@
 //#include "testUtils.h"
 
 //Blur
-
+/*
   char kernel[KERNEL_DIM*KERNEL_DIM]=
   {
 	1,2,1,
 	2,3,2,
 	1,2,1,
   };
-
+*/
 
 //impulse
 /*	char kernel [KERNEL_DIM*KERNEL_DIM]=
@@ -31,13 +31,13 @@
 */
 
 //Edge
-/*char kernel[KERNEL_DIM*KERNEL_DIM]=
+char kernel[KERNEL_DIM*KERNEL_DIM]=
 {
 	-1,-1,-1,
 	-1,8,-1,
 	-1,-1,-1,
 };
-*/
+
 
 //Use with morphological (Erode, dilate)
 /*char kernel[KERNEL_DIM*KERNEL_DIM]
@@ -111,7 +111,7 @@ int main()
 	doImgproc(inputStream, outputStream, kernel, 0);
 	printf("Core function ended\n");
 
-	/*kun
+
 
 	//Take data from the output stream to our array outImage (pointed in opencv)
 	for (int idxRows = 0; idxRows < imageSrc.rows; idxRows++)
@@ -124,6 +124,13 @@ int main()
 		}
 	}
 
+
+
+	//imshow("My Image",imageSrc);
+	imwrite(OUTPUT_IMAGE_CORE, imgCvOut);
+
+
+	/*kun
 
 	//Save image out file or display
 	if (imageSrc.rows < 12)

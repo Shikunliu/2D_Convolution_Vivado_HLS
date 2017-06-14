@@ -52,15 +52,15 @@ void doImgproc(hls::stream<uint_8_side_channel> &inStream, hls::stream<int_8_sid
 
 		//Avoid calculate out of the image boundaries
 		short valOutput = 0;
-		if ((idxRow >= KERNEL_DIM-1) && (idxCol >= KERNEL_DIM-1)) // Once exceed the boundaries
+		if ((idxRow >= KERNEL_DIM-1) && (idxCol >= KERNEL_DIM-1)) // Once finish 9 times multiplication
 		{
 			switch (operation)
 			{
 			case 0:
 			{
 				//Convolution
-				valOutput = sumWindow(&window);
-				//valOutput = valOutput /8
+				valOutput = sumWindow(&window); //Sum of 9 results
+				valOutput = valOutput /8;
 				//Avoid negative values
 				if (valOutput <0)
 					valOutput = 0;
@@ -102,7 +102,7 @@ void doImgproc(hls::stream<uint_8_side_channel> &inStream, hls::stream<int_8_sid
 		 */
 
 		//Put data on output stream (side-channel(tlast) way...)
-		/*dataOutSideChannel.data = valOutput;
+		 dataOutSideChannel.data = valOutput;
 		 dataOutSideChannel.keep = currPixelSideChannel.keep;
 		 dataOutSideChannel.strb = currPixelSideChannel.strb;
 		 dataOutSideChannel.user = currPixelSideChannel.user;
@@ -112,7 +112,7 @@ void doImgproc(hls::stream<uint_8_side_channel> &inStream, hls::stream<int_8_sid
 
 
 		 //Send to the stream(Block if the FIFOreceiver is full)
-		 outStream.write(dataOutSideChannel);*/
+		 outStream.write(dataOutSideChannel);
 		/*countWait++;
 		 if (countWait > waitTicks)
 		 {

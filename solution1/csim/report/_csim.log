@@ -2,7 +2,6 @@ INFO: [SIM 2] *************** CSIM start ***************
 WARNING: [SIM 51] HLS only supports CLANG compiler in Linux.
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
    Compiling ../../../test_bench.cpp in debug mode
-   Compiling ../../../core.cpp in debug mode
    Generating csim.exe
 Load image C:\Users\baohaochun\2d_convolution_unit\ab.bmp
 Image Rows:320 Cols240
