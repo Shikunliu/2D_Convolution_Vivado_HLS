@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="core.cpp" path="C:\Users\baohaochun\2d_convolution_unit\core.cpp"/>
+    <originFiles name="core.h" path="C:\Users\baohaochun\2d_convolution_unit\core.h"/>
+  </source>
+  <testbench>
+    <originFiles name="test_core.cpp" path="C:\Users\baohaochun\2d_convolution_unit\test_core.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
